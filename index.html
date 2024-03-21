@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="shortcut icon" href="./img/pokeball_favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style/fonts.css">
+    <link rel="stylesheet" href="./style/section.css">
+    <link rel="stylesheet" href="./style/main.css">
+    <script src="./script/pokemon_arrays.js"></script>
+    <script src="./script/html_template.js"></script>
+    <script src="./script/script.js"></script>
+</head>
+
+<body onload="init()">
+    <header>
+        <img class="pokeball" src="./img/pokeball.png" alt="pokeball">
+        <h1>Pokedex</h1>
+    </header>
+    <div id="pokemonContainer"></div>
+    <button onclick="handleLoadPokemon('more')" id="loadMoreButton">Lade weitere</button>
+    <button onclick="handleLoadPokemon('less')" id="loadLessButton" style="display: none;">Lade weniger</button>
+</body>
+
+</html>
