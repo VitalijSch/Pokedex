@@ -9,19 +9,21 @@
     <link rel="stylesheet" href="./style/fonts.css">
     <link rel="stylesheet" href="./style/section.css">
     <link rel="stylesheet" href="./style/main.css">
-    <script src="./script/pokemon_arrays.js"></script>
+    <script src="./script/pokemon_colors.js"></script>
     <script src="./script/html_template.js"></script>
     <script src="./script/script.js"></script>
 </head>
 
 <body onload="init()">
     <header>
-        <img class="pokeball" src="./img/pokeball.png" alt="pokeball">
-        <h1>Pokedex</h1>
+        <div class="header-container">
+            <img onclick="showInputField()" class="pokeball" src="./img/pokeball_favicon.png" alt="pokeball">
+            <h1 onclick="scrollToTop()">Pokedex</h1>
+        </div>
+        <input oninput="showSearchPokemon() " type="text" id="searchPokemon" style="display: none;">
     </header>
     <div id="pokemonContainer"></div>
-    <button onclick="handleLoadPokemon('more')" id="loadMoreButton">Lade weitere</button>
-    <button onclick="handleLoadPokemon('less')" id="loadLessButton" style="display: none;">Lade weniger</button>
+    <button onclick="loadMorePokemon()" id="loadMoreButton">Lade weitere</button>
 </body>
 
 </html>

@@ -14,9 +14,8 @@ function renderPokemonHtmlTemplate(pokemon, i) {
 }
 
 
-function renderTypeHtmlTemplate(types, i) {
-    console.log(types['type']['name'])
+function renderTypeHtmlTemplate(types) {
     return /* html */ `
-        <span class="pokemon-type${i}">${types['type']['name']}</div>
+        <span>${types['type']['name']}</div>
     `;
 }
