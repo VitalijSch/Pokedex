@@ -9,8 +9,10 @@ header {
     padding: 20px;
     position: sticky;
     top: 0;
-    backdrop-filter: blur(10px);
     z-index: 2;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgb(0, 0, 0, 0.3);
+    margin-bottom: 30px;
 }
 
 .header-container {
@@ -62,8 +64,8 @@ h1:hover {
 }
 
 .pokemon-container-style {
-    height: 270px;
-    width: 250px;
+    height: 320px;
+    width: 300px;
     border-radius: 20px;
     color: white;
     display: flex;
@@ -90,6 +92,11 @@ h1:hover {
     font-size: 25px;
 }
 
+.pokeball-background {
+    background-image: url('../img/pokeball.png');
+
+}
+
 .type-img-container {
     width: 100%;
     display: flex;
@@ -111,7 +118,8 @@ h1:hover {
 }
 
 .type-img-container img {
-    height: 150px;
+    width: 150px;
+    height: 200px;
     transition: transform 0.3s ease;
 }
 
@@ -128,4 +136,194 @@ button {
 
 button:hover {
     background-color: rgba(241, 218, 69, 0.746);
+}
+
+#bigScreenContainer {
+    max-width: 1920px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: rgb(0, 0, 0, 0.4);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#bigScreenContainer svg {
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    transition: transform 0.3s ease;
+}
+
+#bigScreenContainer svg:hover {
+    transform: scale(1.2);
+}
+
+.big-screen-container {
+    width: 30%;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.upper-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 24px;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: relative;
+    color: #ffffff99;
+}
+
+.description-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.upper-id {
+    color: #ffffff99;
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.upper-type {
+    padding: 5px 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    text-align: center;
+}
+
+.upper-container img {
+    height: 270px;
+    width: 100%;
+    object-fit: contain;
+    top: 50px;
+}
+
+.lower-container {
+    border-radius: 20px;
+    margin-top: -20px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 24px;
+}
+
+.lower-container h3 {
+    text-align: center;
+}
+
+.big-type-container {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.big-type-container span {
+    padding: 5px 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    text-align: center;
+}
+
+.close-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-button:hover {
+    transform: scale(1.3);
+}
+
+@media(max-width: 1500px) {
+    .big-screen-container {
+        width: 40%;
+    }
+}
+
+@media(max-width: 1200px) {
+    .big-screen-container {
+        width: 50%;
+    }
+
+    #bigScreenContainer svg {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media(max-width: 900px) {
+    .big-screen-container {
+        width: 70%;
+    }
+}
+
+@media(max-width: 700px) {
+    .big-screen-container {
+        width: 80%;
+    }
+}
+
+@media(min-width: 501px) {
+    .d-none {
+        display: none;
+    }
+}
+
+@media(max-width: 500px) {
+    #bigScreenContainer {
+        align-items: flex-start;
+    }
+
+    .big-screen-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    #bigScreenContainer svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .arrow-left {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        z-index: 999;
+    }
+
+    .arrow-right {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 999;
+    }
+
+    .upper-container {
+        border-radius: 0;
+    }
+
+    .lower-container {
+        border-radius: 0;
+    }
 }

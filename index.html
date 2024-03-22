@@ -12,6 +12,7 @@
     <script src="./script/pokemon_colors.js"></script>
     <script src="./script/html_template.js"></script>
     <script src="./script/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body onload="init()">
@@ -23,6 +24,8 @@
         <input oninput="showSearchPokemon() " type="text" id="searchPokemon" style="display: none;">
     </header>
     <div id="pokemonContainer"></div>
+    <div onclick="closeShowPokemon(event)" id="bigScreenContainer" style="display: none;"></div>
+    <span onclick="closeShowPokemon(event)" class="close-button d-none" style="display: none;">X</span>
     <button onclick="loadMorePokemon()" id="loadMoreButton">Lade weitere</button>
 </body>
 

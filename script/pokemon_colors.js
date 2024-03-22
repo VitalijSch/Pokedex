@@ -2,7 +2,7 @@ const pokemonColors = [
     { type: 'grass', color: 'rgb(88,169,49)' },
     { type: 'fire', color: 'rgb(205,62,37)' },
     { type: 'water', color: 'rgb(27,125,224)' },
-    { type: 'bug', color: 'rgb(165,41,42)' },
+    { type: 'bug', color: 'rgb(151,166,20)' },
     { type: 'flying', color: 'rgb(116,137,221)' },
     { type: 'ice', color: 'rgb(29,166,196)' },
     { type: 'normal', color: 'rgb(142,131,103)' },
