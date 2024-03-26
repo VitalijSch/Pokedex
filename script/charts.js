@@ -1,6 +1,7 @@
 function renderChart(i) {
     const ctx = document.getElementById('myChart');
-    const stats = pokedex[i]['stats'];
+    let loadedPokemon = filteredIndexes.length === 0 ? pokedex[i] : filteredPokedex[i];
+    const stats = loadedPokemon['stats'];
     const stat = stats.map(stat => stat['base_stat']);
     const statNames = stats.map(stat => stat['stat']['name'])
     new Chart(ctx, {

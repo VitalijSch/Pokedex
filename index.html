@@ -6,28 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <link rel="shortcut icon" href="./img/pokeball_favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./style/main.css">
     <link rel="stylesheet" href="./style/fonts.css">
+    <link rel="stylesheet" href="./style/main.css">
     <link rel="stylesheet" href="./style/section.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="./script/charts.js"></script>
+    <link rel="stylesheet" href="./style/media.css">
+    <script src="./script/script.js"></script>
     <script src="./script/pokemon_colors.js"></script>
     <script src="./script/html_template.js"></script>
-    <script src="./script/script.js"></script>
+    <script src="./script/api.js"></script>
+    <script src="./script/charts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="init()">
+<body onload="initialize()">
     <header>
-        <div class="header-container">
-            <img onclick="toggleInputField()" class="pokeball" src="./img/pokeball_favicon.png" alt="pokeball">
-            <h1 onclick="scrollToTop()">Pokedex</h1>
+        <div onclick="scrollToTop()" class="header-container">
+            <img class="pokeball" src="./img/pokeball_favicon.png" alt="pokeball">
+            <h1>Pokedex</h1>
         </div>
-        <input oninput="searchPokemon() " type="text" id="searchPokemon" style="display: none;">
+        <input oninput="searchPokemon()" type="text" id="searchPokemon">
     </header>
     <div id="pokemonContainer"></div>
     <div onclick="closeExpandPokemon(event)" id="bigScreenContainer" style="display: none;"></div>
     <span onclick="closeExpandPokemon(event)" class="close-button d-none" style="display: none;">X</span>
-    <button onclick="loadMorePokemon()" id="loadMoreButton">Lade weitere</button>
+    <span id="loadMorePokemon"></span>
 </body>
 
 </html>
