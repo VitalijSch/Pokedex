@@ -3,7 +3,7 @@ function renderPokemonHtmlTemplate(pokemonName, pokemon, i, pokemonImg) {
         <div onclick="renderExpendPokemonCard(${i})" class="pokemon-container${i} pokemon-container-style">
             <div class="name-id-container">
                 <h2>${pokemonName}</h2>
-                <span>#${pokemon.id}</span>
+                <span>${idNumberWithZero(i)}${pokemon.id}</span>
             </div>
             <div class="type-img-container">
                 <div id="pokemonTypeContainer${i}" class="type-container"></div>
@@ -23,16 +23,16 @@ function renderExpendPokemonHtmlTemplate(pokemonName, pokemon, i, pokemonImg) {
             <div class="upper-container${i} upper-container">
                 <div class="description-container">
                     <h2>${pokemonName}</h2>
-                    <span class="upper-id">#${pokemon.id}</span>
+                    <span class="upper-id">${idNumberWithZero(i)}${pokemon.id}</span>
                 </div>
                 <div id="expendPokemonTypeContainer${i}" class="big-type-container"></div>
                 <img onclick="playPokemonCry(${i})" class="pokemon-cry-img" src="${pokemonImg}" alt="pokemon">
             </div>
             <div class="lower-container">
                 <h3>Pokemon stats</h3>
-                <div>
+                                    <div>
                     <canvas id="myChart"></canvas>
-                </div>
+                                </div>
             </div>
         </div>
         <svg onclick="switchExpandPokemon('right', ${i})" style="display: none;" class="arrow arrow-right" xmlns="http://www.w3.org/2000/svg" height="70" viewBox="0 -960 960 960" width="70">

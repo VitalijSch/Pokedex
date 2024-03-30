@@ -70,6 +70,7 @@ h1 {
     padding: 30px 20px 20px 20px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    border: 3px solid black;
 }
 
 .pokemon-container-style:hover {

@@ -12,7 +12,7 @@ const pokemonColors = [
     { type: 'fairy', color: 'rgb(209,124,209)' },
     { type: 'fighting', color: 'rgb(126,49,27)' },
     { type: 'psychic', color: 'rgb(208,63,114)' },
-    { type: 'rock', color: 'rgb(162,136,51)' },
+    { type: 'rock', color: 'rgb(172,160,65)' },
     { type: 'ghost', color: 'rgb(63,63,150)' },
     { type: 'dragon', color: 'rgb(86,57,200)' },
     { type: 'dark', color: 'rgb(77,60,48)' },

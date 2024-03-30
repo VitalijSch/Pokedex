@@ -1,9 +1,9 @@
-function renderChart(i) {
+function renderChartStats(i) {
     const ctx = document.getElementById('myChart');
-    let loadedPokemon = filteredIndexes.length === 0 ? pokedex[i] : filteredPokedex[i];
+    let loadedPokemon = getDisplayedPokemon(i);
     const stats = loadedPokemon['stats'];
-    const stat = stats.map(stat => stat['base_stat']);
-    const statNames = stats.map(stat => stat['stat']['name'])
+    const stat = stats.map(stat => stat.base_stat);
+    const statNames = stats.map(stat => capitalizeFirstLetter(stat.stat.name));
     new Chart(ctx, {
         type: 'bar',
         data: {

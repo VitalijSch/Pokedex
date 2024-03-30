@@ -16,13 +16,13 @@ async function loadPokemon() {
 
 
 async function loadAllPokemon() {
-    for (let i = loadPokemonFrom; i < allPokemon; i++) {
+    for (let i = loadPokemonFrom; i < loadAllPokemonUntil; i++) {
         const id = i + 1;
         const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
         const [response, error] = await resolve(fetch(url));
         const pokemonData = await response.json();
         if (response) {
-            filteredPokedex.push(pokemonData);
+            allPokemon.push(pokemonData);
         }
         if (error) {
             console.error(error);
