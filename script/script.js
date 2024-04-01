@@ -41,7 +41,8 @@ function renderPokemonCardTypes(pokemon, i) {
     const pokemonTypeContainer = document.getElementById(`pokemonTypeContainer${i}`);
     pokemonTypeContainer.innerHTML = '';
     pokemon.types.forEach((type, j) => {
-        const typeName = type.type.name;
+        const typeName = capitalizeFirstLetter(type.type.name);
+        console.log(typeName)
         pokemonTypeContainer.innerHTML += `<span id="typeContainer${i}${j}">${typeName}</span>`;
         pokemonChangeColor('pokemon-container', 'typeContainer', i, j);
     });
@@ -54,7 +55,7 @@ function renderExpandedPokemonTypes(pokemon, i) {
     const expendPokemonTypeContainer = document.getElementById(`expendPokemonTypeContainer${i}`);
     expendPokemonTypeContainer.innerHTML = '';
     pokemon.types.forEach((type, j) => {
-        const typeName = type.type.name;
+        const typeName = capitalizeFirstLetter(type.type.name);
         expendPokemonTypeContainer.innerHTML += `<span id="bigTypeContainer${i}${j}">${typeName}</span>`;
         pokemonChangeColor('upper-container', 'bigTypeContainer', i, j);
     });
@@ -216,11 +217,6 @@ function closeExpandPokemon(event) {
 }
 
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-
 function idNumberWithZero(i) {
     const numberWithZero = ['#000', '#00', '#0', '#'];
     const index = i + 1;
@@ -228,4 +224,9 @@ function idNumberWithZero(i) {
     if (index <= 99) return numberWithZero[1];
     if (index <= 999) return numberWithZero[2];
     return numberWithZero[3];
+}
+
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
