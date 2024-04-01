@@ -175,7 +175,7 @@ function switchExpandPokemon(action, i) {
 
 
 function showNextOrPreviousFilteredPokemon(action, i) {
-    let currentIndex = filteredIndexes.findIndex(index => index === i);
+    let currentIndex = filteredIndexes.indexOf(i);
     let index;
     if (action === 'left') {
         currentIndex = currentIndex - 1;
