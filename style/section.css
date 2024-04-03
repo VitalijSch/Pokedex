@@ -109,15 +109,19 @@ h1 {
     text-align: center;
 }
 
-.type-img-container img {
+.pokemon-img {
     width: 200px;
     height: 200px;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.pokemon-container-style:hover img {
+.pokemon-img:hover {
     transform: scale(1.2);
+}
+
+.not-found {
+    text-align: center;
 }
 
 /* BIGSCREENCONTAINER */
@@ -226,6 +230,8 @@ h1 {
 .big-type-container {
     width: 100%;
     margin-top: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .big-type-container span {

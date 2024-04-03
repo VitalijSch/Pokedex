@@ -7,7 +7,7 @@ function renderPokemonHtmlTemplate(pokemonName, pokemon, i, pokemonImg) {
             </div>
             <div class="type-img-container">
                 <div id="pokemonTypeContainer${i}" class="type-container"></div>
-                <img src="${pokemonImg}" alt="pokemon">
+                <img class="pokemon-img" src="${pokemonImg}" alt="pokemon">
             </div>
         </div>
     `;

@@ -1,10 +1,10 @@
+let pokedex = [];
+let allPokemon = [];
+let filteredIndexes = [];
 let loadPokemonFrom = 0;
 let loadPokemonUntil = 20;
 let loadAllPokemonUntil = 1025;
 let findFilteredPokemon = false;
-let pokedex = [];
-let allPokemon = [];
-let filteredIndexes = [];
 let firstTypeColor = null;
 let secondTypeColor = null;
 
@@ -12,6 +12,7 @@ let secondTypeColor = null;
 async function initialize() {
     await loadPokemon();
     await loadAllPokemon();
+    await loadSpecialPokemon();
 }
 
 
@@ -19,7 +20,7 @@ function renderPokemonCard(i) {
     const pokemon = getDisplayedPokemon(i);
     const pokemonContainer = document.getElementById('pokemonContainer');
     const pokemonName = capitalizeFirstLetter(pokemon.name);
-    const pokemonImg = getPokemonImage(pokemon, i);
+    const pokemonImg = getPokemonImageOrCries(pokemon, i, 'image');
     pokemonContainer.innerHTML += renderPokemonHtmlTemplate(pokemonName, pokemon, i, pokemonImg);
     renderPokemonCardTypes(pokemon, i);
 }
@@ -29,7 +30,7 @@ function renderExpendPokemonCard(i) {
     const pokemon = getDisplayedPokemon(i);
     const bigScreenContainer = document.getElementById('bigScreenContainer');
     const pokemonName = capitalizeFirstLetter(pokemon.name);
-    const pokemonImg = getPokemonImage(pokemon, i);
+    const pokemonImg = getPokemonImageOrCries(pokemon, i, 'image');
     bigScreenContainer.innerHTML = renderExpendPokemonHtmlTemplate(pokemonName, pokemon, i, pokemonImg);
     renderExpandedPokemonTypes(pokemon, i);
     updateExpendPokemon();
@@ -42,7 +43,6 @@ function renderPokemonCardTypes(pokemon, i) {
     pokemonTypeContainer.innerHTML = '';
     pokemon.types.forEach((type, j) => {
         const typeName = capitalizeFirstLetter(type.type.name);
-        console.log(typeName)
         pokemonTypeContainer.innerHTML += `<span id="typeContainer${i}${j}">${typeName}</span>`;
         pokemonChangeColor('pokemon-container', 'typeContainer', i, j);
     });
@@ -130,7 +130,7 @@ function getDisplayedPokemon(i) {
 function playPokemonCry(i) {
     const loadedPokemon = getDisplayedPokemon(i);
     const audioElement = new Audio();
-    const audioUrl = getPokemonCries(loadedPokemon, i);
+    const audioUrl = getPokemonImageOrCries(loadedPokemon, i, 'cries');
     audioElement.src = audioUrl;
     audioElement.play();
 }
@@ -139,10 +139,12 @@ function playPokemonCry(i) {
 function searchPokemon() {
     const searchPokemon = document.getElementById('searchPokemon');
     const pokemonContainer = document.getElementById('pokemonContainer');
+    let searchKeyword = searchPokemon.value.toLowerCase();
     pokemonContainer.innerHTML = '';
     if (searchPokemon.value.length > 2) {
-        searchFilteredIndex(searchPokemon.value.toLowerCase());
-    } else {
+        searchFilteredIndex(searchKeyword);
+    }
+    if (searchPokemon.value.length <= 2) {
         window.onscroll = handleScroll;
         findFilteredPokemon = false;
         for (let i = 0; i < pokedex.length; i++) {
@@ -155,12 +157,18 @@ function searchPokemon() {
 function searchFilteredIndex(searchKeyword) {
     window.onscroll = null;
     filteredIndexes = [];
+    let findedPokemon = false;
+    pokemonContainer.innerText = '';
     for (let i = 0; i < allPokemon.length; i++) {
         if (allPokemon[i].name.toLowerCase().startsWith(searchKeyword)) {
             findFilteredPokemon = true;
+            findedPokemon = true
             filteredIndexes.push(i);
             renderPokemonCard(i);
         }
+    }
+    if (!findedPokemon) {
+        pokemonContainer.innerHTML = /* html*/`<div class="not-found">Leider konnten wir keine Pokémon finden, die mit Ihrer Suche übereinstimmen.</div>`;
     }
 }
 

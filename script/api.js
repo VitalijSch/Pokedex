@@ -31,24 +31,38 @@ async function loadAllPokemon() {
 }
 
 
-function getPokemonImage(loadedPokemon, index) {
+async function loadSpecialPokemon() {
+    for (let i = 10000; i < 10277; i++) {
+        const url = `https://pokeapi.co/api/v2/pokemon/${i + 1}`;
+        const [response, error] = await resolve(fetch(url));
+        const pokemonData = await response.json();
+        if (response) {
+            allPokemon.push(pokemonData);
+        }
+        if (error) {
+            console.error(error);
+        }
+    }
+}
+
+
+function getPokemonImageOrCries(loadedPokemon, index, resourceType) {
+    if (index > 1025) {
+        index = (index - 1025);
+        index = index + 10000;
+    }
     const pokemonName = loadedPokemon.name;
     let pokemonIndex = pokedex.findIndex(pokemon => pokemon.name === pokemonName);
     if (pokemonIndex === -1) {
         pokemonIndex = index;
     }
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonIndex + 1}.png`;
-}
-
-
-function getPokemonCries(loadedPokemon, index) {
-    const pokemonName = loadedPokemon.name;
-    let pokemonIndex = pokedex.findIndex(pokemon => pokemon.name === pokemonName);
-    if (pokemonIndex === -1) {
-        pokemonIndex = index;
+    if (resourceType === 'image') {
+        return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonIndex + 1}.png`;
+    } else {
+        return `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonIndex + 1}.ogg`;
     }
-    return `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonIndex + 1}.ogg`;
 }
+
 
 
 async function resolve(promise) {
